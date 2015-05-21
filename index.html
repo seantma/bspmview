@@ -32,9 +32,9 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>
-<a id="about-bspmview" class="anchor" href="#about-bspmview" aria-hidden="true"><span class="octicon octicon-link"></span></a>About BSPMVIEW</h3>
+<a id="bspmview" class="anchor" href="#bspmview" aria-hidden="true"><span class="octicon octicon-link"></span></a>bspmview</h3>
 
-<p>This is in progress documentation for using BSPMVIEW.</p>
+<p>Requires that <a href="www.fil.ion.ucl.ac.uk/spm/">Statistical Parametric Mapping</a> be in your MATLAB search path. It has only been tested on SPM8/SPM12. It requires a number of supporting utility functions and data files that should have been included in the distribution of bspmview. When bspmview is launched, it will look for these files in a folder called "supportfiles" that should be contained in the same folder as BSPMVIEW.</p>
 
 <h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
@@ -59,7 +59,7 @@
 
 <p>This will overlay "spmT_0001.img" on to "T1.nii":</p>
 
-<pre><code>&gt;&gt; bspmview('spmT_0001.img', 'T1.nii')   % overlay on 'T1.nii'
+<pre><code>&gt;&gt; bspmview('spmT_0001.img', 'T1.nii') 
 </code></pre>
 
 <h3>
@@ -86,6 +86,11 @@
 <a id="have-questions" class="anchor" href="#have-questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Have Questions?</h3>
 
 <p>Feel free to shoot me (Bob) an email at: <a href="mailto:bobspunt@gmail.com">bobspunt@gmail.com</a></p>
+
+<h4>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>CREDITS</h4>
+
+<p>This software heavily relies on functions contained within the SPM software, and is essentially an attempt to translate some of it into a simpler and more user-friendly format. In addition, this software was   inspired by and in some cases uses code from two other statistical image viewers: <a href="http://www.alivelearn.net/xjview8/developers/">xjview</a>, and <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">FIVE</a>. Finally, several contributions to the <a href="http://www.mathworks.com/matlabcentral/fileexchange/">MATLAB File Exchange</a> are called by the code. These are included in the "supporting files" folder that should have been included in the distribution of the main bspmview function.</p>
       </section>
     </div>
 
