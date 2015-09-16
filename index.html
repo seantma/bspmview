@@ -137,41 +137,51 @@
 
 <p>These preferences allow you to customize a number of display features included in <em>bspmview</em>. Modified preferences are saved and reloaded the next time you use <em>bspmview</em>.  Under <strong>Thresholding</strong> you can modify:</p>
 
-<ul>
-<li>
-<strong>Corrected Alpha</strong>: This controls the corrected alpha to use when doing family-wise error correction</li>
-</ul>
+<table><thead>
+</thead><tbody>
+<tr>
+<td><strong>Corrected Alpha</strong></td>
+<td>This controls the corrected alpha to use when doing family-wise error correction</td>
+</tr>
+</tbody></table>
 
 <p>Under <strong>Thresholding</strong> you can also modify two parameters that control how many peaks (local maxima) are identified in the currently thresholded overlay. This will primarily affect the results tables, which display all local maxima. But it will also affect where the crosshair goes when you select <strong>Go to Nearest Peak</strong> from one of the slice view menus. The parameters are:</p>
 
-<ul>
-<li>
-<strong>Peak Separation</strong>: This is the minimim distance (in mm) separating the peaks. The larger the distance, the fewer the peaks. You may know this by the *Dis variable in the SPM software. </li>
-<li>
-<strong># Peaks/Cluster</strong>: This is the maximum number of peaks to identify per cluster. The smaller the number, the fewer the peaks. You may know this by the <em>Num</em> variable in the SPM software. </li>
-</ul>
+<table><thead>
+</thead><tbody>
+<tr>
+<td><strong>Peak Separation</strong></td>
+<td>This is the minimim distance (in mm) separating the peaks. The larger the distance, the fewer the peaks. You may know this by the *Dis variable in the SPM software.</td>
+</tr>
+<tr>
+<td><strong>N Peaks/Cluster</strong></td>
+<td>This is the maximum number of peaks to identify per cluster. The smaller the number, the fewer the peaks. You may know this by the <em>Num</em> variable in the SPM software.</td>
+</tr>
+</tbody></table>
 
 <p>Under <strong>Anatomical Labeling</strong> you can modify:</p>
 
-<ul>
-<li>
-<strong>Name</strong>: This is the Atlas to grab the labels from (currently the Anatomy Toolbox and Harvard-Oxford are the only two preloaded into <em>bspmview</em>)</li>
-</ul>
+<table><thead>
+</thead><tbody>
+<tr>
+<td><strong>Atlas Name</strong></td>
+<td>This is the Atlas to grab the labels from (currently the Anatomy Toolbox and Harvard-Oxford are the only two preloaded into <em>bspmview</em>)</td>
+</tr>
+</tbody></table>
 
 <p>Under <strong>Surface Rendering</strong> you can modify parameters that control how your surface renderings will look. Most of the parameters correspond to those present in <a href="http://mrtools.mgh.harvard.edu/index.php/SurfPlot">SurfPlot</a> by Aaron P. Schultz, which is the function upon which this feature is based:</p>
 
-<ul>
-<li>
-<strong>Surfaces to Render</strong>: This controls which of the four views to show (L=Left, R=Right). For instance, the default L/R Medial/Lateral will show:</li>
-</ul>
+<table><thead>
+</thead><tbody>
+<tr>
+<td><strong>Surfaces to Render</strong></td>
+<td>This controls which of the four views to show (L=Left, R=Right). For instance, the default L/R Medial/Lateral will show something like this:</td>
+</tr>
+</tbody></table>
 
 <p><img src="http://www.bobspunt.com/public/gh-pages/bspmview/Render_0745x0418.jpg" alt="Render"></p>
 
 <table><thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
 </thead><tbody>
 <tr>
 <td><strong>Surface Type</strong></td>
