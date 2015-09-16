@@ -167,27 +167,52 @@
 
 <p><img src="http://www.bobspunt.com/public/gh-pages/bspmview/Render_0745x0418.jpg" alt="Render"></p>
 
-<ul>
-<li>
-<strong>Surface Type</strong>: This controls the type of surface to render on. The above was created using the <em>Inflated</em> surface option. </li>
-<li>
-<strong>Shading Type</strong>: Set the shading information for the surface</li>
-<li>
-<strong>N Vertices</strong>: This determines the resolution/quality of the rendering. </li>
-<li>
-<strong>Shading Min</strong>: Set the min greyscale value for the surface underlay (range of 0 to 1)</li>
-<li>
-<strong>Shading Max</strong>: Set the max greyscale value for the surface underlay (range of 0 to 1)</li>
-<li>
-<strong>Add Color Bar</strong>: Option to include/exclude colorbar from rendering. </li>
-<li>
-<strong>Round Values?</strong>: Rounds all values on the surface to nearest whole number. Useful for binary mask images.</li>
-<li>
-<strong>Nearest Neighbor?</strong>: Only the value from the closest voxel will be used. Useful for mask and label images.</li>
-<li>
-<strong>Dilate Inclusive Mask?</strong>: This will use <em>spm_dilate</em> to slightly dilate the suprathresholded image so that small or non-surface (e.g., sulcul) activations are visible.</li>
-</ul>
+<table><thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Surface Type</strong></td>
+<td>This controls the type of surface to render on. The above was created using the <em>Inflated</em> surface option.</td>
+</tr>
+<tr>
+<td><strong>Shading Type</strong></td>
+<td>Set the shading information for the surface</td>
+</tr>
+<tr>
+<td><strong>N Vertices</strong></td>
+<td>This determines the resolution/quality of the rendering.</td>
+</tr>
+<tr>
+<td><strong>Shading Min</strong></td>
+<td>Set the min greyscale value for the surface underlay (range of 0 to 1)</td>
+</tr>
+<tr>
+<td><strong>Shading Max</strong></td>
+<td>Set the max greyscale value for the surface underlay (range of 0 to 1)</td>
+</tr>
+<tr>
+<td><strong>Add Color Bar</strong></td>
+<td>Option to include/exclude colorbar from rendering.</td>
+</tr>
+<tr>
+<td><strong>Round Values?</strong></td>
+<td>Rounds all values on the surface to nearest whole number. Useful for binary mask images.</td>
+</tr>
+<tr>
+<td><strong>Nearest Neighbor?</strong></td>
+<td>Only the value from the closest voxel will be used. Useful for mask and label images.</td>
+</tr>
+<tr>
+<td><strong>Dilate Inclusive Mask?</strong></td>
+<td>This will use <em>spm_dilate</em> to slightly dilate the suprathresholded image so that small or non-surface (e.g., sulcul) activations are visible.</td>
+</tr>
+</tbody></table>
 
+
+<h2>
 <a id="slice-montage" class="anchor" href="#slice-montage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slice Montage</h2>
 
 <p>To visualize your thresholded map overlaid on a montage of anatomical slices, use the <strong>Slice Monage</strong> function, which you can find under <strong>Display</strong> in the <strong>Menu Bar</strong>:</p>
