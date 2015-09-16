@@ -52,29 +52,54 @@
 <h2>
 <a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
 
-<p><em>bspmview</em> is a graphical user interface for overlaying, thresholding, and visualizing 3D statistical neuroimages in MATLAB. It requires a number of core functions from the MATLAB software <a href="www.fil.ion.ucl.ac.uk/spm/">Statistical Parametric Mapping</a>. It has been tested on SPM8+. <em>bspmview</em> was directly inspired by and in some cases incorporates code from from two other statistical image viewers: <a href="http://www.alivelearn.net/xjview8/developers/">xjview</a> and <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">FIVE</a>. The idea behind bspmview was to integrate and improve some of the great features of these two viewing programs in an interface that I find to be more intuitive, accessible, and customizable. Most importantly, all of its features require <strong>no additional third-party software</strong> (other than SPM, of course). These features include: </p>
-<ul id='draft_check_box_list_3'>
-    <li>reads .img/.hdr, .nii, and .nii.gz</p>
-        <ul id='draft_check_box_list_1'>
-            <li>note that some features in <em>bspmview</em> will be automatically disabled if you load in a statistical image that was generated outside of SPM (for instance, in FSL), or if <em>bspmview</em> is unable to locate the model output files (e.g., SPM.MAT, ResMS.nii) associated with the provided statistical image</li>
-        </ul>
-    </li>
-    <li>can read non-statistical/non-intensity images (e.g., binary mask, ROIs, or count images)</li>
-    <li>quickly switch display of contrast sign (+, -, or +/-)</li>
-    <li>uncorrected and corrected image thresholding on models estimated using SPM or <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">GLMFLEX</a>, including SPM&#39;s native procedures for familywise error rate (FWE) correction at both voxel and cluster levels</li>
-    <li>automatic anatomical labeling with the Anatomy Toolbox or Harvard Oxford atlases</li>
-    <li>generate interactive table of labeled activation peaks, and save (potentially) publication-ready tables to CSV </li>
-    <li>quickly generate customizable and possibly publication-ready:</p>
-        <ul id='draft_check_box_list_2'>
-            <li>surface renderings</li>
-            <li>slice montages</li>
-        </ul>
-    </li>
-    <li>save thresholded whole-brain maps or specific clusters as either intensity images or binary masks</li>
-    <li>save region-of-interest images by growing spheres/boxes around a coordinate (and optionally intersect the sphere/box with thresholded overlay image)</li>
-    <li>many colormap options</li>
-    <li>and other random features, such using <a href="http://neurosynth.org/locations/">Neurosynth</a> to examine functional connectivity and coactivation maps for the current coordinate</li>
-</ul>
+<p><em>bspmview</em> is a graphical user interface for overlaying, thresholding, and visualizing 3D statistical neuroimages in MATLAB. It requires a number of core functions from the MATLAB software <a href="www.fil.ion.ucl.ac.uk/spm/">Statistical Parametric Mapping</a>. It has been tested on SPM8+. <em>bspmview</em> was directly inspired by and in some cases incorporates code from from two other statistical image viewers: <a href="http://www.alivelearn.net/xjview8/developers/">xjview</a> and <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">FIVE</a>. The idea behind bspmview was to integrate and improve some of the great features of these two viewing programs in an interface that I find to be more intuitive, accessible, and customizable. Most importantly, all of its features require <strong>no additional third-party software</strong> (other than SPM, of course). Note that some features in <em>bspmview</em> will be automatically disabled if you load in a statistical image that was generated outside of SPM (for instance, in FSL), or if <em>bspmview</em> is unable to locate the model output files (e.g., SPM.mat, ResMS.nii) associated with the provided statistical image.</p>
+ </p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"><strong>Features</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">reads .img/.hdr, .nii, and .nii.gz</td>
+</tr>
+<tr>
+<td style="text-align: left">can read non-statistical/non-intensity images (e.g., binary mask, ROIs, or count images)</td>
+</tr>
+<tr>
+<td style="text-align: left">quickly switch display of contrast sign (+, -, or +/-)</td>
+</tr>
+<tr>
+<td style="text-align: left">voxelvise and cluster-base uncorrected and corrected image thresholding</td>
+</tr>
+<tr>
+<td style="text-align: left">automatic anatomical labeling with the Anatomy Toolbox or Harvard Oxford atlases</td>
+</tr>
+<tr>
+<td style="text-align: left">generate interactive table of labeled activation peaks, and save possibly publication-worthy tables to CSV</td>
+</tr>
+<tr>
+<td style="text-align: left">customizable and possibly publication-worthy surface renderings</td>
+</tr>
+<tr>
+<td style="text-align: left">customizable and possibly publication-worthy slice montages</td>
+</tr>
+<tr>
+<td style="text-align: left">save thresholded whole-brain maps or specific clusters as either intensity images or binary masks</td>
+</tr>
+<tr>
+<td style="text-align: left">save region-of-interest images by growing spheres/boxes around a coordinate (and optionally intersect the sphere/box with thresholded overlay image)</td>
+</tr>
+<tr>
+<td style="text-align: left">customizable color maps (different maps, set max/min, reverse)</td>
+</tr>
+<tr>
+<td style="text-align: left">automatically open <a href="http://neurosynth.org/locations/">Neurosynth</a> in browser to examine connectivity/coactivation maps for current coordinate</td>
+</tr>
+<tr>
+<td style="text-align: left">and many other random features...</td>
+</tr>
+</tbody></table>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
