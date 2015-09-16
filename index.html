@@ -45,60 +45,58 @@
 <li><a href="#the-main-interface">The Main Interface</a></li>
 <li><a href="#changing-the-interface-appearance">Changing the Interface Appearance</a></li>
 <li><a href="#displaypreferences">Display:Preferences</a></li>
+<li><a href="#slice-montage">Slice Montage</a></li>
 <li><a href="#have-questions">Have Questions?</a></li>
 </ol>
 
 <h2>
 <a id="about" class="anchor" href="#about" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2>
 
-<p><em>bspmview</em> is a graphical user interface for overlaying, thresholding, and visualizing 3D statistical neuroimages in MATLAB. It currently requires a number of core functions from the MATLAB software <a href="www.fil.ion.ucl.ac.uk/spm/">Statistical Parametric Mapping</a>, and indeed will work best with the statistical images produced using SPM. Note that it has only been tested on SPM8/SPM12. </p>
-
-<p><em>bspmview</em> was directly inspired by and in some cases incorporates code from from two other statistical image viewers: <a href="http://www.alivelearn.net/xjview8/developers/">xjview</a> and <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">FIVE</a>. The idea behind bspmview was to integrate and improve some of the great features of these two viewing programs in an interface that I find to be more intuitive, accessible, and customizable. Most importantly, all of its features require <strong>no additional third-party software</strong> (other than SPM, of course). These features include: </p>
-
-<ul>
-<li>reads .img/.hdr, .nii, and .nii.gz</li>
-<li>can read non-statistical/non-intensity images (e.g., binary mask, ROIs, or count images)</li>
-<li>quickly switch display of contrast sign (+, -, or +/-)</li>
-<li>uncorrected and corrected image thresholding, including SPM-benchmarked familywise error rate (FWE) correction at both voxel and cluster levels</li>
-<li>automatic anatomical labeling with the Anatomy Toolbox or Harvard Oxford atlases</li>
-<li>generate interactive table of labeled activation peaks, and save (potentially) publication-ready tables to CSV </li>
-<li>quickly generate beautiful and customizable surface renderings</li>
-<li>save thresholded whole-brain maps or specific clusters as either intensity images or binary masks</li>
-<li>save region-of-interest images by growing spheres/boxes around a coordinate (and optionally intersect the sphere/box with thresholded overlay image)</li>
-<li>many colormap options</li>
-<li>and other random features, such using <a href="http://neurosynth.org/locations/">Neurosynth</a> to examine functional connectivity and coactivation maps for the current coordinate</li>
+<p><em>bspmview</em> is a graphical user interface for overlaying, thresholding, and visualizing 3D statistical neuroimages in MATLAB. It requires a number of core functions from the MATLAB software <a href="www.fil.ion.ucl.ac.uk/spm/">Statistical Parametric Mapping</a>. It has been tested on SPM8+. <em>bspmview</em> was directly inspired by and in some cases incorporates code from from two other statistical image viewers: <a href="http://www.alivelearn.net/xjview8/developers/">xjview</a> and <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">FIVE</a>. The idea behind bspmview was to integrate and improve some of the great features of these two viewing programs in an interface that I find to be more intuitive, accessible, and customizable. Most importantly, all of its features require <strong>no additional third-party software</strong> (other than SPM, of course). These features include: </p>
+<ul id='draft_check_box_list_3'>
+    <li>reads .img/.hdr, .nii, and .nii.gz</p>
+        <ul id='draft_check_box_list_1'>
+            <li>note that some features in <em>bspmview</em> will be automatically disabled if you load in a statistical image that was generated outside of SPM (for instance, in FSL), or if <em>bspmview</em> is unable to locate the model output files (e.g., SPM.MAT, ResMS.nii) associated with the provided statistical image</li>
+        </ul>
+    </li>
+    <li>can read non-statistical/non-intensity images (e.g., binary mask, ROIs, or count images)</li>
+    <li>quickly switch display of contrast sign (+, -, or +/-)</li>
+    <li>uncorrected and corrected image thresholding on models estimated using SPM or <a href="http://mrtools.mgh.harvard.edu/index.php/Main_Page">GLMFLEX</a>, including SPM&#39;s native procedures for familywise error rate (FWE) correction at both voxel and cluster levels</li>
+    <li>automatic anatomical labeling with the Anatomy Toolbox or Harvard Oxford atlases</li>
+    <li>generate interactive table of labeled activation peaks, and save (potentially) publication-ready tables to CSV </li>
+    <li>quickly generate customizable and possibly publication-ready:</p>
+        <ul id='draft_check_box_list_2'>
+            <li>surface renderings</li>
+            <li>slice montages</li>
+        </ul>
+    </li>
+    <li>save thresholded whole-brain maps or specific clusters as either intensity images or binary masks</li>
+    <li>save region-of-interest images by growing spheres/boxes around a coordinate (and optionally intersect the sphere/box with thresholded overlay image)</li>
+    <li>many colormap options</li>
+    <li>and other random features, such using <a href="http://neurosynth.org/locations/">Neurosynth</a> to examine functional connectivity and coactivation maps for the current coordinate</li>
 </ul>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <ol>
-<li>Download the software</li>
-<li>Put the <em>bspmview</em> folder either on your MATLAB path or in the "toolboxes" subfolder of your SPM installation. Note that only the parent folder needs to be on the path. The subfolder "supportfiles" is added to the MATLAB path whenever you run bspmview.</li>
+    <li>Download the software</li>
+    <li>Put the <em>bspmview</em> folder either on your MATLAB path or in the &quot;toolboxes&quot; subfolder of your SPM installation. Note that only the parent folder needs to be on the path. The subfolder &quot;supportfiles&quot; is added to the MATLAB path whenever you run bspmview.</li>
 </ol>
-
-<h2>
-<a id="launching-bspmview" class="anchor" href="#launching-bspmview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Launching <em>bspmview</em>
-</h2>
-
-<p>If you put bspmview in the "toolboxes" subfolder of your SPM installation, you will be able to launch <em>bspmview</em> by selecting it from the "Toolbox:" dropdown menu in the SPM graphical user interface. Otherwise, as long as bspmview is on your MATLAB path you can start it from the command line by entering: </p>
-
-<pre><code>&gt;&gt; bspmview                    
-</code></pre>
-
-<p>This will open a file selection dialogue window with which you can select the overlay image you'd like to display:</p>
-
-<p><img src="http://www.bobspunt.com/public/gh-pages/bspmview/file_selection_2633x1083.jpg" alt="The File Selection Dialogue"></p>
-
-<p>You can also give bspmview filenames for overlay and underlay images as arguments. The following will display the overlay <em>spmT_0001.img</em> on the default underlay (this example assumes that the image is in your working directory; otherwise, you'd need to enter the full path): </p>
-
-<pre><code>&gt;&gt; bspmview('spmT_0001.img') 
-</code></pre>
-
+<h2 id="launching-bspmview">Launching <em>bspmview</em></h2>
+<p>If you put bspmview in the &quot;toolboxes&quot; subfolder of your SPM installation, you will be able to launch <em>bspmview</em> by selecting it from the &quot;Toolbox:&quot; dropdown menu in the SPM graphical user interface:</p>
+<p><img src="https://raw.githubusercontent.com/spunt/bspmview/master/supportfiles/doc/spm_dropdown.jpg" alt="SPM Dropdown"></p>
+<p>Otherwise, as long as bspmview is on your MATLAB path you can start it from the command line by entering: </p>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">bspmview</span>                    
+</pre></div>
+<p>This will open a file selection dialogue window with which you can select the overlay image you&#39;d like to display:</p>
+<p><img src="https://raw.githubusercontent.com/spunt/bspmview/master/supportfiles/doc/file_selection_2633x1083.jpg" alt="The File Selection Dialogue"></p>
+<p>You can also give bspmview filenames for overlay and underlay images as arguments. The following will display the overlay <em>spmT_0001.img</em> on the default underlay (this example assumes that the image is in your working directory; otherwise, you&#39;d need to enter the full path): </p>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">bspmview</span><span class="p">(</span><span class="err">&#39;</span><span class="n">spmT_0001</span><span class="p">.</span><span class="n">img</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
 <p>This will overlay <em>spmT_0001.img</em> on to <em>T1.nii</em>:</p>
-
-<pre><code>&gt;&gt; bspmview('spmT_0001.img', 'T1.nii') 
-</code></pre>
+<div class="highlight"><pre><span class="o">&gt;&gt;</span> <span class="n">bspmview</span><span class="p">(</span><span class="err">&#39;</span><span class="n">spmT_0001</span><span class="p">.</span><span class="n">img</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">T1</span><span class="p">.</span><span class="n">nii</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
 
 <h2>
 <a id="the-main-interface" class="anchor" href="#the-main-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Main Interface</h2>
@@ -189,6 +187,18 @@
 <li>
 <strong>Dilate Inclusive Mask?</strong>: This will use <em>spm_dilate</em> to slightly dilate the suprathresholded image so that small or non-surface (e.g., sulcul) activations are visible.</li>
 </ul>
+
+<a id="slice-montage" class="anchor" href="#slice-montage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slice Montage</h2>
+
+<p>To visualize your thresholded map overlaid on a montage of anatomical slices, use the <strong>Slice Monage</strong> function, which you can find under <strong>Display</strong> in the <strong>Menu Bar</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/spunt/bspmview/master/supportfiles/doc/slicemontage1.jpg" alt="slicemontage1"></p>
+<p>You should now see a pop-up menu that will allow you to select the slice <strong>view</strong> (sagittal, axial, coronal); hide either the color and/or the coordinate labels appearing on each slice; give the color (if not hidden) a snazzy title; and specify the maximum number of slices to include in each row of the montage: </p>
+<p><img src="https://raw.githubusercontent.com/spunt/bspmview/master/supportfiles/doc/slicemontage2.jpg" alt="slicemontage2"></p>
+<p>Pressing <strong>OK</strong> will advance you to the next challenge you will have to face: Choosing the slices to display. By default, <em>bspmview</em> automatically provides a representative list of slices containing local maxima in the thresholded image. Feel free to change, or just go with it knowing that you can easily delete individual slices from the resulting montage: </p>
+<p><img src="https://raw.githubusercontent.com/spunt/bspmview/master/supportfiles/doc/slicemontage3.jpg" alt="slicemontage3"></p>
+<p>If it worked, you should see something approximating the mind-blowing work-of-art presented below:</p>
+<p><img src="https://raw.githubusercontent.com/spunt/bspmview/master/supportfiles/doc/slicemontage4.jpg" alt="slicemontage4"></p>
+<p>If there are too many slices, you can delete individual slices by right-clicking on any individual slice (when you do this, <em>bspmview</em> will try to automatically re-arrange the montage so it continues to look super hot). If chose to have labels, you can mess with the size and position of those using the - you guessed it - *<em>Labels</em> menu. </p>
 
 <h2>
 <a id="have-questions" class="anchor" href="#have-questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Have Questions?</h2>
