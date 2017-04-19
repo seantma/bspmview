@@ -839,6 +839,14 @@ function put_upperpaneinfo(parent)
     set(th, 'units', 'norm');
     drawnow;
 
+%   #####     #    #       #       ######     #     #####  #    #  #####
+%  #     #   # #   #       #       #     #   # #   #     # #   #  #     #
+%  #        #   #  #       #       #     #  #   #  #       #  #   #
+%  #       #     # #       #       ######  #     # #       ###     #####
+%  #       ####### #       #       #     # ####### #       #  #         #
+%  #     # #     # #       #       #     # #     # #     # #   #  #     #
+%   #####  #     # ####### ####### ######  #     #  #####  #    #  #####
+%
 % | CALLBACKS - THRESHOLDING
 % =========================================================================
 function cb_updateoverlay(varargin)
@@ -1532,6 +1540,14 @@ function cb_changexyz(varargin)
     bspm_orthviews('reposition', xyz');
     drawnow;
 
+%   #####  ######              #######    #    ######  #       #######
+%  #     # #     #                #      # #   #     # #       #
+%  #       #     #                #     #   #  #     # #       #
+%  #       ######     #####       #    #     # ######  #       #####
+%  #       #     #                #    ####### #     # #       #
+%  #     # #     #                #    #     # #     # #       #
+%   #####  ######                 #    #     # ######  ####### #######
+%
 % | CALLBACKS - TABLE/REPORT
 % =========================================================================
 function cb_report(varargin)
@@ -1632,6 +1648,39 @@ function cb_savetable(varargin)
 
         writereport(allcell, fullfile(pname, strcat(fnameonly, '.csv')));
     end
+
+function sean_savetable(varargin)
+    global st
+    T       = getthresh;
+    di      = strcmpi({'+' '-' '+/-'}, T.direct);
+    if nargin < 3
+        LOCMAX = st.ol.tab;
+        LABELS = getregionnames(LOCMAX(:,3:5)');
+        voxels = [cell(size(LABELS)) LABELS num2cell(LOCMAX)];
+        voxels{1,1} = 'Positive';
+        if any(LOCMAX(:,2)<0)
+            tmpidx = find(LOCMAX(:,2)<0);
+            voxels{tmpidx(1),1} = 'Negative';
+        end
+    else
+        voxels = get(varargin{3}, 'Data');
+    end
+    sep         = cell(1, size(voxels,2));
+    h           = repmat(sep, 3, 1);
+    h(:,1)      = {'Source Image' 'Thresholding' 'Note'}';
+    h{1,2}        = sprintf('%s', st.ol.fname);
+    h{2,2}        = sprintf('t > %2.4f; p < %2.4f; df = %d; minimum extent = %d', T.thresh, T.pval, T.df, T.extent);
+    h{3,2}        = sprintf('Table shows all local maxima separated by more than %d mm. Regions were automatically labeled using the %s atlas. ', st.preferences.separation, st.preferences.atlasname);
+    h{3,2}        = [h{3,2} 'x, y, and z =Montreal Neurological Institute (MNI) coordinates in the left-right, anterior-posterior, and inferior-superior dimensions, respectively.'];
+    headers0    = [h; sep];
+    headers1    = {'Contrast Name' '' '' '' 'MNI Coordinates' '' ''};
+    headers2    = {'' 'Region Label' 'Extent' 't-value' 'x' 'y' 'z'};
+    allcell     = [headers0; headers1; headers2; sep; voxels];
+    [p, imname] = fileparts(st.ol.fname);
+    diname      = {'Positive' 'Negative' 'PosNeg'};
+    outname     = ['save_table_' imname '_' diname{di} '_I' num2str(T.thresh) '_C' num2str(T.extent) '_S' num2str(st.preferences.separation)];
+    pname       = pwd;
+    writereport(allcell, fullfile(pname, strcat(outname, '.csv')));
 
 % | CALLBACKS - SLICE MONTAGE
 % =========================================================================
@@ -7598,6 +7647,3 @@ xlsWorkbook.write(fileOut);
 fileOut.close();
 
 status = 1;
-
-
-
